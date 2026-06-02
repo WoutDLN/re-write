@@ -34,8 +34,8 @@ Just don't forget to add an empty line before starting your list!
 
 You can even use checkboxes, although it may be tricky to find a good use case for this:
 
-[ ] item
-[x] item
+- [ ] item
+- [x] item
 
 And you can include write some inline `code`, or add a code block:
 ```
