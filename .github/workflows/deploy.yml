@@ -29,6 +29,29 @@ jobs:
       - name: Convert Markdown to HTML
         run: |
           marked essay.md > index.html
+          cat << 'EOF' > index.html
+          <!DOCTYPE html>
+          <html>
+          <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <title>My Site</title>
+
+            <!-- GitHub-style Markdown CSS -->
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.5.1/github-markdown.min.css">
+            <link rel="stylesheet" href="assets/css/style.css">
+          </head>
+          <body>
+            <article class="markdown-body">
+          EOF
+
+          cat content.html >> index.html
+
+          cat << 'EOF' >> index.html
+            </article>
+          </body>
+          </html>
+          EOF
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
