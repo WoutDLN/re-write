@@ -1,4 +1,6 @@
-# Dummy Essay
+---
+title: My Essay
+---
 
 ## Introduction 
 Lorem **Ipsum**.
