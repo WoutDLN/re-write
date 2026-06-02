@@ -118,22 +118,26 @@ body {
   margin: 0.4em 0;
 }
 
-/* Remove bullets completely */
-.markdown-body ul.task-list {
-  list-style: none;
-  padding-left: 0;
-  margin-left: 0;
+
+
+/* Remove bullets from ANY checklist-like list */
+.markdown-body ul.task-list,
+.markdown-body ul:has(input[type="checkbox"]) {
+  list-style: none !important;
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+  accent-color: #7a0000 !important; /* matches your link color */
 }
 
-/* Ensure individual items don't restore bullets */
+/* Kill marker explicitly */
+.markdown-body ul.task-list li::marker,
+.markdown-body ul:has(input[type="checkbox"]) li::marker {
+  content: "" !important;
+}
+
+/* Safety: also remove list style from items */
 .markdown-body li.task-list-item {
-  list-style: none;
-}
-
-.markdown-body input[type="checkbox"] {
-  accent-color: #7a0000; /* matches your link color */
-  transform: scale(1.1);
-  margin-top: 0.2em;
+  list-style: none !important;
 }
 
 
