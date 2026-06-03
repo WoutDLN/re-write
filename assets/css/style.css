@@ -189,10 +189,17 @@ body {
   padding-left: 1em;
 }
 
+
 .toc a {
-  color: #333;
-  border-bottom: none;
+  color: #444;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
 }
+
+.toc a:hover {
+  color: #7a0000;
+  border-bottom: 1px solid #7a0000;
+}
+
 
 /* ===== Author line ===== */
 
