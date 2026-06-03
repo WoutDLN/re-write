@@ -29,10 +29,16 @@
 
   </article>
 
+
+
+
+
   <article class="markdown-body">
     <footer class="site-footer">
       <div>
-        $if(author)$Written by $author$.$endif$
+        $if(author)$Copyright © $author$$if(first_published)$ $first_published$–$endif$. Distributed via a <a href="https://github.com/WoutDLN/ccaw/blob/main/LICENSE">Creative Commons Attribution (CC-BY) 4.0 License</a>.$endif$
+      </div>
+      <div>
         $if(last_updated)$ Last updated on $last_updated$.$endif$
         $if(repo_url)$ <a href="$repo_url$">View on Github</a>.$endif$
         $if(edit_url)$ <a href="$edit_url$">Edit this page</a>.$endif$

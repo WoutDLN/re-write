@@ -24,6 +24,11 @@ jobs:
         run: |
           echo "date=$(git log -1 --format=%cd --date=format:'%-d %B %Y')" >> $GITHUB_OUTPUT
 
+      - name: Get first commit date
+        id: firstdate
+        run: |
+          echo "date=$(git log --reverse --format=%cd --date=format:'%Y' | head -n 1)" >> $GITHUB_OUTPUT
+
       - name: Install Pandoc
         run: sudo apt-get update && sudo apt-get install -y pandoc
 
@@ -39,6 +44,7 @@ jobs:
             --metadata repo_url="https://github.com/${{ github.repository }}" \
             --metadata edit_url="https://github.com/${{ github.repository }}/blob/main/essay.md" \
             --metadata repo_name="${{ github.repository }}" \
+            --metadata year_first_published="${{ steps.firstdate.outputs.date }}"
             --output=index.html
 
           # Wrap content with GitHub-style container

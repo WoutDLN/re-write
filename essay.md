@@ -1,6 +1,6 @@
 ---
 title: My Essay
-author: John Doe
+author: Wout Dillen
 bibliography: references.bib
 ---
 
