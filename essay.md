@@ -37,7 +37,7 @@ You can even use checkboxes, although it may be tricky to find a good use case f
 - [ ] item
 - [x] item
 
-And you can include write some inline `code`, or add a code block:
+And you can include some inline `code`, or add a code block:
 ```
 This is
 a code
