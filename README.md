@@ -5,7 +5,7 @@ A light-weight template for generating a web-hosted essay from a markdown file.
 
 This template was designed to help students write a critical essay in markdown, with automatic reference formatting via a linked `.bib` file, while keeping track of their writing process through git's versioning system. The template uses a built-in workflow for visualising and publishing the essay with GitHub Pages, and/or developing the essay locally with pandoc. 
 
-The template was developed by [Wout Dillen](https://www.hb.se/forskning/forskningsportal/forskare/wout-dillen/), Senior Lecturer in Library and Information Science at the University of Borås](https://www.hb.se/en/).
+The template was developed by [Wout Dillen](https://www.hb.se/forskning/forskningsportal/forskare/wout-dillen/), Senior Lecturer in Library and Information Science at the [University of Borås](https://www.hb.se/en/).
 
 ## Website Link
 
