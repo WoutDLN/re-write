@@ -13,9 +13,9 @@ The template was developed by [Wout Dillen](https://www.hb.se/forskning/forsknin
 
 ## Technical requirements
 
-To publish the essay with GitHub Pages, the user only requires a GitHub account, and to activate the deployment through `Settings > Pages > Build and deployment > Source > Github Actions`. 
+To publish the essay with GitHub Pages, you only need a GitHub account, and to activate the deployment through `Settings > Pages > Build and deployment > Source > Github Actions`. 
 
-To develop the essay locally to check changes before committing, the user needs to install pandoc by following [the instructions for their OS](https://pandoc.org/installing.html). Afterwards, HTML files can be generated from the markdown by navigating to the relevant directory in the terminal, and running:
+To develop the essay locally to check changes before committing, install pandoc (if you haven't already) by following [the instructions for their OS](https://pandoc.org/installing.html). Afterwards, HTML files can be generated from the markdown by navigating to the relevant directory in a terminal, and running:
 ```
 make preview
 ```
