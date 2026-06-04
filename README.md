@@ -9,7 +9,7 @@ The template was developed by [Wout Dillen](https://www.hb.se/forskning/forsknin
 
 ## Website Link
 
-🚀 Visit the demo version here: [https://sslis.github.io/critical-essay-template/](https://sslis.github.io/critical-essay-tempate/).
+🚀 Visit the demo version here: [https://woutdln.github.io/critical-essay-template/](https://woutdln.github.io/critical-essay-template/).
 
 ## Technical requirements
 
