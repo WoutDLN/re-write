@@ -5,10 +5,6 @@ preview:
 	LAST_ISO_ESSAY=$$(git log -1 --format=%cd --date=format:"%Y-%m-%d" -- essay.md); \
 	FIRST_DISPLAY_ESSAY=$$(git log --follow --reverse --format=%cd --date=format:"%Y" -- essay.md | head -n 1); \
 	FIRST_ISO_ESSAY=$$(git log --follow --reverse --format=%cd --date=format:"%Y-%m-%d" -- essay.md | head -n 1); \
-	LAST_DISPLAY_HOWTO=$$(git log -1 --format=%cd --date=format:"%-d %B %Y" -- howto.md); \
-	LAST_ISO_HOWTO=$$(git log -1 --format=%cd --date=format:"%Y-%m-%d" -- howto.md); \
-	FIRST_DISPLAY_HOWTO=$$(git log --follow --reverse --format=%cd --date=format:"%Y" -- howto.md | head -n 1); \
-	FIRST_ISO_HOWTO=$$(git log --follow --reverse --format=%cd --date=format:"%Y-%m-%d" -- howto.md | head -n 1); \
 	pandoc essay.md \
 	--standalone \
 	--template=assets/template/template.html \
@@ -20,6 +16,11 @@ preview:
 	--metadata year_first_published="$$FIRST_DISPLAY_ESSAY" \
 	--metadata first_published_iso="$$FIRST_ISO_ESSAY" \
 	--output=preview.html
+
+	LAST_DISPLAY_HOWTO=$$(git log -1 --format=%cd --date=format:"%-d %B %Y" -- howto.md); \
+	LAST_ISO_HOWTO=$$(git log -1 --format=%cd --date=format:"%Y-%m-%d" -- howto.md); \
+	FIRST_DISPLAY_HOWTO=$$(git log --follow --reverse --format=%cd --date=format:"%Y" -- howto.md | head -n 1); \
+	FIRST_ISO_HOWTO=$$(git log --follow --reverse --format=%cd --date=format:"%Y-%m-%d" -- howto.md | head -n 1); \
 	pandoc howto.md \
 	--standalone \
 	--template=assets/template/template.html \

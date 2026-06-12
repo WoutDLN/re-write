@@ -19,17 +19,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Get last updated date
-        id: lastmod
-        run: |
-          echo "date=$(git log -1 --format=%cd --date=format:'%-d %B %Y')" >> $GITHUB_OUTPUT
-
-      - name: Get first commit date
-        id: firstdate
-        run: |
-          echo "date=$(git log --reverse --format=%cd --date=format:'%Y' | head -n 1)" >> $GITHUB_OUTPUT
-
-
       - name: Get repository license
         id: license
         env:
@@ -47,20 +36,51 @@ jobs:
 
       - name: Convert Markdown to styled HTML
         run: |
+          # ===== ESSAY =====
+          LAST_DISPLAY_ESSAY=$(git log -1 --format=%cd --date=format:"%-d %B %Y" -- essay.md)
+          LAST_ISO_ESSAY=$(git log -1 --format=%cd --date=format:"%Y-%m-%d" -- essay.md)
+          FIRST_DISPLAY_ESSAY=$(git log --follow --reverse --format=%cd --date=format:"%Y" -- essay.md | head -n 1)
+          FIRST_ISO_ESSAY=$(git log --follow --reverse --format=%cd --date=format:"%Y-%m-%d" -- essay.md | head -n 1)
+
           pandoc essay.md \
             --standalone \
             --template=assets/template/template.html \
             --citeproc \
             --csl=https://www.zotero.org/styles/apa \
             --toc \
-            --metadata last_updated="${{ steps.lastmod.outputs.date }}" \
+            --metadata last_updated="$LAST_DISPLAY_ESSAY" \
+            --metadata last_updated_iso="$LAST_ISO_ESSAY" \
+            --metadata year_first_published="$FIRST_DISPLAY_ESSAY" \
+            --metadata first_published_iso="$FIRST_ISO_ESSAY" \
             --metadata repo_url="https://github.com/${{ github.repository }}" \
             --metadata edit_url="https://github.com/${{ github.repository }}/blob/main/essay.md" \
             --metadata repo_name="${{ github.repository }}" \
-            --metadata year_first_published="${{ steps.firstdate.outputs.date }}" \
             --metadata license_name="${{ steps.license.outputs.name }}" \
             --metadata license_url="${{ steps.license.outputs.url }}" \
             --output=index.html
+
+          # ===== HOWTO =====
+          LAST_DISPLAY_HOWTO=$(git log -1 --format=%cd --date=format:"%-d %B %Y" -- howto.md)
+          LAST_ISO_HOWTO=$(git log -1 --format=%cd --date=format:"%Y-%m-%d" -- howto.md)
+          FIRST_DISPLAY_HOWTO=$(git log --follow --reverse --format=%cd --date=format:"%Y" -- howto.md | head -n 1)
+          FIRST_ISO_HOWTO=$(git log --follow --reverse --format=%cd --date=format:"%Y-%m-%d" -- howto.md | head -n 1)
+
+          pandoc howto.md \
+            --standalone \
+            --template=assets/template/template.html \
+            --citeproc \
+            --csl=https://www.zotero.org/styles/apa \
+            --toc \
+            --metadata last_updated="$LAST_DISPLAY_HOWTO" \
+            --metadata last_updated_iso="$LAST_ISO_HOWTO" \
+            --metadata year_first_published="$FIRST_DISPLAY_HOWTO" \
+            --metadata first_published_iso="$FIRST_ISO_HOWTO" \
+            --metadata repo_url="https://github.com/${{ github.repository }}" \
+            --metadata edit_url="https://github.com/${{ github.repository }}/blob/main/howto.md" \
+            --metadata repo_name="${{ github.repository }}" \
+            --metadata license_name="${{ steps.license.outputs.name }}" \
+            --metadata license_url="${{ steps.license.outputs.url }}" \
+            --output=howto.html
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
