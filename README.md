@@ -1,4 +1,4 @@
-# critical-essay-template
+# versioned-essay-template
 A light-weight template for generating a web-hosted essay from a markdown file. 
 
 ## About
