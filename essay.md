@@ -29,7 +29,7 @@ Or ordered lists:
 2. Pour the gin over the ice.
 3. Top up with tonic.
 4. Cut a slice of lemon peel off the lemon.
-5. Direct the lempon peel's outer layer towards the drink, and squeeze to spray its oils into the glass.
+5. Direct the lemon peel's outer layer towards the drink, and squeeze to spray its oils into the glass.
 6. Add the lemon peel to the drink.
 7. Enjoy, responsibly!
 
