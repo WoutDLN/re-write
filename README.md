@@ -1,5 +1,5 @@
-# versioned-essay-template
-A light-weight template for generating a web-hosted essay from a markdown file. 
+# re:write
+A light-weight template for generating a web-hosted essay from a markdown file through a versioned writing process. 
 
 ## About
 
